@@ -228,7 +228,7 @@ function translate(ing, total) {
 // UI wiring
 // ---------------------------------------------------------------------------
 
-const state = { dishId: 'arroz', people: 4, result: null };
+const state = { dishId: '', people: 1, result: null };
 
 const dishSelect = document.getElementById('dish-select');
 const peopleInput = document.getElementById('people-input');
@@ -241,6 +241,13 @@ const resultSubtitleEl = document.getElementById('result-subtitle');
 const ingGridEl = document.getElementById('ing-grid');
 const tipEl = document.getElementById('tip');
 const stepsListEl = document.getElementById('steps-list');
+
+const placeholderOpt = document.createElement('option');
+placeholderOpt.value = '';
+placeholderOpt.textContent = 'Selecciona la comida';
+placeholderOpt.disabled = true;
+placeholderOpt.selected = true;
+dishSelect.appendChild(placeholderOpt);
 
 for (const d of DISHES) {
   const opt = document.createElement('option');
@@ -329,6 +336,7 @@ function render() {
 }
 
 function calcNow() {
+  if (!state.dishId) return;
   const p = clampPeople(parseInt(peopleInput.value, 10)) || 1;
   state.people = p;
   peopleInput.value = p;
