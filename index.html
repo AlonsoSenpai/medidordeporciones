@@ -156,28 +156,21 @@
   .step-text { flex: 1 1 auto; min-width: 0; font-size: 15px; line-height: 1.55; color: var(--text-secondary); text-wrap: pretty; }
 
   .donation {
-    margin-top: 34px; padding: 22px; background: var(--surface); border: 1px solid var(--border);
-    border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center;
-    justify-content: space-between; gap: 16px;
+    margin-top: 24px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 12px;
   }
-  .donation-text { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .donation-text { flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
   .donation-text strong {
-    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 24px;
-    line-height: 1.15; color: var(--text-primary);
+    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 17px;
+    line-height: 1.2; color: var(--text-primary);
   }
-  .donation-text p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--text-tertiary); max-width: 42ch; text-wrap: pretty; }
-  .donation-buttons { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-  .donation-buttons a {
-    flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    height: 48px; padding: 0 22px; font-family: 'DM Sans', Helvetica, sans-serif; font-size: 16px;
-    font-weight: 500; border-radius: 10px; text-decoration: none; white-space: nowrap;
-  }
-  .btn-mercadopago { color: var(--surface); background: var(--accent); }
-  .btn-mercadopago:hover { background: var(--accent-hover); }
-  .btn-mercadopago:active { transform: translateY(1px); }
-  .btn-paypal { color: var(--accent); background: var(--bg); border: 1px solid var(--border-strong); }
-  .btn-paypal:hover { background: var(--surface-hover); border-color: var(--accent); }
-  .btn-paypal:active { transform: translateY(1px); }
+  .donation-text p { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--text-tertiary); max-width: 38ch; text-wrap: pretty; }
+  .donation-buttons { flex: 0 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .donation-buttons a { display: inline-flex; align-items: center; opacity: 0.9; transition: opacity 0.15s; }
+  .donation-buttons a:hover { opacity: 1; }
+  .donation-buttons a:active { transform: translateY(1px); }
+  .donation-buttons img { display: block; height: 28px; width: auto; border-radius: 8px; }
 
   footer {
     margin: 40px 0 0; padding-top: 20px; border-top: 1px solid var(--border);
@@ -238,12 +231,16 @@
 
     <div class="donation">
       <div class="donation-text">
-        <strong>Haz tu aporte voluntario</strong>
-        <p>Haz tu aporte voluntario para poder mejorar este sitio y mantenerlo. Muchas gracias.</p>
+        <strong>Tu aporte nos ayuda</strong>
+        <p>Tu aporte nos ayuda a mejorar este sitio y mantenerlo. Muchas gracias.</p>
       </div>
       <div class="donation-buttons">
-        <a class="btn-mercadopago" href="https://link.mercadopago.cl/medidordeporciones" target="_blank" rel="noopener noreferrer">Donar por Mercado Pago</a>
-        <a class="btn-paypal" href="https://www.paypal.me/alonsovselmundo" target="_blank" rel="noopener noreferrer">Donar por Paypal</a>
+        <a href="https://link.mercadopago.cl/medidordeporciones" target="_blank" rel="noopener noreferrer">
+          <img src="assets/mercadopago.png" alt="Donar por Mercado Pago">
+        </a>
+        <a href="https://www.paypal.me/alonsovselmundo" target="_blank" rel="noopener noreferrer">
+          <img src="assets/paypal.jpeg" alt="Donar por PayPal">
+        </a>
       </div>
     </div>
 
