@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cuántos porotos por persona? Calculadora de porciones | Medidor de porciones</title>
+<meta name="description" content="Calcula cuántos porotos secos, agua, zapallo y fideos necesitas para porotos con riendas según el número de personas.">
+<link rel="canonical" href="https://www.medidordeporciones.com/porotos/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Medidor de porciones">
+<meta property="og:title" content="¿Cuántos porotos por persona? Calculadora de porciones">
+<meta property="og:description" content="Calcula cuántos porotos secos, agua, zapallo y fideos necesitas para porotos con riendas según el número de personas.">
+<meta property="og:url" content="https://www.medidordeporciones.com/porotos/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1913306252613038" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuántos porotos necesito por persona?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La porción estándar de porotos con riendas es de 80 g de porotos secos por persona, remojados desde la noche anterior. Usa la calculadora para ajustar agua, zapallo y fideos según cuántas personas vas a servir." }
+    }
+  ]
+}
+</script>
+</head>
+<body data-preselect-dish="porotos">
+<div class="page">
+  <div class="container">
+
+    <nav class="breadcrumb"><a href="/">Medidor de porciones</a> › Porotos con riendas</nav>
+
+    <header>
+      <span class="eyebrow">Cocina · cantidades</span>
+      <h1>¿Cuántos porotos por persona? Calculadora de porciones</h1>
+      <p>Ingresa el número de personas y te devolvemos la lista completa de ingredientes para preparar porotos con riendas.</p>
+    </header>
+
+    <p class="quick-answer">La porción estándar de porotos con riendas es de 80 g de porotos secos por persona, remojados desde la noche anterior. Usa la calculadora para ajustar agua, zapallo y fideos según cuántas personas vas a servir.</p>
+
+    <div class="form-card">
+      <label class="field">
+        <span>¿Qué quieres preparar?</span>
+        <span class="select-wrap">
+          <select id="dish-select"></select>
+          <span class="select-chevron"></span>
+        </span>
+      </label>
+
+      <label class="field">
+        <span>¿Para cuántas personas?</span>
+        <div class="stepper">
+          <button type="button" id="btn-dec" aria-label="Menos personas">−</button>
+          <input type="number" id="people-input" min="1" max="200" inputmode="numeric" value="1">
+          <button type="button" id="btn-inc" aria-label="Más personas">+</button>
+        </div>
+      </label>
+
+      <button type="button" class="btn-primary" id="btn-calc">Calcular</button>
+    </div>
+
+    <section class="results" id="results">
+      <div class="results-heading">
+        <h2 id="result-title"></h2>
+        <span id="result-subtitle"></span>
+      </div>
+
+      <div class="ing-grid" id="ing-grid"></div>
+
+      <p class="tip" id="tip"></p>
+
+      <div class="steps">
+        <span class="steps-label">Preparación</span>
+        <div id="steps-list"></div>
+      </div>
+    </section>
+
+    <p class="related"><strong>También puedes calcular:</strong> <a href="/arroz/">Arroz graneado</a> · <a href="/fideos/">Fideos / tallarines</a> · <a href="/cazuela/">Cazuela de vacuno</a> · <a href="/completos/">Completos</a> · <a href="/churrascos/">Churrascos / sándwich de carne</a> · <a href="/pure/">Puré de papas</a> · <a href="/ensalada/">Ensalada chilena</a> · <a href="/charquican/">Charquicán</a> · <a href="/pollo/">Pollo asado al horno</a></p>
+
+    <div class="donation">
+      <div class="donation-text">
+        <strong>Tu aporte nos ayuda</strong>
+        <p>Tu aporte nos ayuda a mejorar este sitio y mantenerlo. Muchas gracias.</p>
+      </div>
+      <div class="donation-buttons">
+        <a class="mp-chip" href="https://link.mercadopago.cl/medidordeporciones" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/mercadopago.png" alt="Donar por Mercado Pago">
+        </a>
+        <a href="https://www.paypal.me/alonsovselmundo" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/paypal.jpeg" alt="Donar por PayPal">
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <span>Estudio Cactus ®</span>
+      <span class="contact">Contacto: <a href="mailto:alonso.chr91@gmail.com">alonso.chr91@gmail.com</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -255,6 +255,10 @@ for (const d of DISHES) {
   opt.textContent = d.name;
   dishSelect.appendChild(opt);
 }
+const preselect = document.body.dataset.preselectDish;
+if (preselect && DISHES.some(d => d.id === preselect)) {
+  state.dishId = preselect;
+}
 dishSelect.value = state.dishId;
 peopleInput.value = state.people;
 
@@ -368,3 +372,5 @@ btnInc.addEventListener('click', () => {
 });
 
 btnCalc.addEventListener('click', calcNow);
+
+if (preselect && state.dishId) calcNow();
