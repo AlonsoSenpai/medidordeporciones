@@ -171,6 +171,11 @@
   .donation-buttons a:hover { opacity: 1; }
   .donation-buttons a:active { transform: translateY(1px); }
   .donation-buttons img { display: block; height: 44px; width: auto; border-radius: 8px; }
+  .donation-buttons .mp-chip {
+    height: 44px; padding: 0 14px; background: var(--bg); border: 1px solid var(--border-strong);
+    border-radius: 8px;
+  }
+  .donation-buttons .mp-chip img { height: 20px; border-radius: 0; }
 
   footer {
     margin: 40px 0 0; padding-top: 20px; border-top: 1px solid var(--border);
@@ -235,7 +240,7 @@
         <p>Tu aporte nos ayuda a mejorar este sitio y mantenerlo. Muchas gracias.</p>
       </div>
       <div class="donation-buttons">
-        <a href="https://link.mercadopago.cl/medidordeporciones" target="_blank" rel="noopener noreferrer">
+        <a class="mp-chip" href="https://link.mercadopago.cl/medidordeporciones" target="_blank" rel="noopener noreferrer">
           <img src="assets/mercadopago.png" alt="Donar por Mercado Pago">
         </a>
         <a href="https://www.paypal.me/alonsovselmundo" target="_blank" rel="noopener noreferrer">
