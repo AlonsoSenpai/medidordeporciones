@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medidor de porciones — Calculadora de cantidades para cocina chilena</title>
+<meta name="description" content="Calcula las cantidades exactas de ingredientes para tus recetas chilenas favoritas según el número de personas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1913306252613038" crossorigin="anonymous"></script>
+<style>
+  :root {
+    --bg: #f7f3ec;
+    --surface: #fffdf9;
+    --surface-muted: #f1ece1;
+    --surface-hover: #efe8dc;
+    --text-primary: #1d1a16;
+    --text-secondary: #4a443b;
+    --text-tertiary: #6b6358;
+    --text-muted: #8a8175;
+    --text-faint: #b3aa9c;
+    --accent: #a8502c;
+    --accent-hover: #8e4123;
+    --accent-hover-2: #7d3a1e;
+    --border-strong: #d8cfbe;
+    --border: #e3dbcd;
+    --border-light: #e8e1d4;
+    --border-dashed: #ddd3c2;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover-2); }
+
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type=number] { -moz-appearance: textfield; }
+
+  .page {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    padding: 28px 20px 72px;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; }
+
+  header {
+    display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+  }
+  h1 {
+    margin: 0; font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 44px; line-height: 1.05; font-weight: 400; letter-spacing: -0.01em;
+  }
+  header p {
+    margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: var(--text-tertiary);
+    max-width: 46ch; text-wrap: pretty;
+  }
+
+  .form-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; align-items: end; box-shadow: 0 1px 2px rgba(29,26,22,0.04);
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .field > span:first-child { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+
+  .select-wrap { position: relative; display: block; }
+  select {
+    appearance: none; -webkit-appearance: none; width: 100%; height: 48px;
+    font-family: 'DM Sans', Helvetica, sans-serif; font-size: 16px; color: var(--text-primary);
+    background: var(--bg); border: 1px solid var(--border-strong); border-radius: 10px;
+    padding: 0 40px 0 14px; cursor: pointer;
+  }
+  .select-chevron {
+    position: absolute; right: 15px; top: 50%; width: 8px; height: 8px;
+    border-right: 1.6px solid var(--text-tertiary); border-bottom: 1.6px solid var(--text-tertiary);
+    transform: translateY(-70%) rotate(45deg); pointer-events: none;
+  }
+
+  .stepper { display: flex; align-items: stretch; gap: 8px; }
+  .stepper button {
+    flex: 0 0 48px; height: 48px; font-size: 20px; color: var(--text-secondary);
+    background: var(--bg); border: 1px solid var(--border-strong); border-radius: 10px;
+    cursor: pointer; font-family: 'DM Sans', Helvetica, sans-serif;
+  }
+  .stepper button:hover { background: var(--surface-hover); }
+  .stepper input {
+    flex: 1 1 auto; min-width: 0; height: 48px; text-align: center;
+    font-family: 'DM Sans', Helvetica, sans-serif; font-size: 17px; font-weight: 500;
+    color: var(--text-primary); background: var(--bg); border: 1px solid var(--border-strong);
+    border-radius: 10px; padding: 0 8px;
+  }
+
+  .btn-primary {
+    height: 48px; padding: 0 22px; font-family: 'DM Sans', Helvetica, sans-serif;
+    font-size: 16px; font-weight: 500; color: var(--surface); background: var(--accent);
+    border: 1px solid var(--accent); border-radius: 10px; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .btn-primary:active { transform: translateY(1px); }
+
+  .results { margin-top: 28px; display: none; }
+  .results.visible { display: block; }
+  .results-heading {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+    padding-bottom: 14px; border-bottom: 1px solid var(--border);
+  }
+  .results-heading h2 {
+    margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; font-weight: 400;
+  }
+  .results-heading span { font-size: 14px; color: var(--text-tertiary); }
+
+  .ing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px; margin-top: 16px;
+  }
+  .ing-card {
+    display: flex; align-items: baseline; gap: 12px; background: var(--surface);
+    border: 1px solid var(--border-light); border-radius: 12px; padding: 14px 16px;
+  }
+  .ing-qty {
+    flex: 0 0 auto; font-family: 'Instrument Serif', Georgia, serif; font-size: 22px;
+    line-height: 1.1; color: var(--accent); white-space: nowrap;
+  }
+  .ing-info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .ing-name { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+  .ing-note { font-size: 13px; color: var(--text-muted); }
+  .ing-alt { font-size: 12.5px; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+  .tip {
+    margin: 18px 0 0; padding: 14px 16px; background: var(--surface-muted); border-radius: 12px;
+    font-size: 14px; line-height: 1.55; color: var(--text-secondary); text-wrap: pretty;
+  }
+
+  .steps { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .steps-label {
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 500;
+  }
+  .step-row { display: flex; gap: 12px; align-items: baseline; }
+  .step-n { flex: 0 0 22px; font-family: 'Instrument Serif', Georgia, serif; font-size: 18px; color: var(--accent); }
+  .step-text { flex: 1 1 auto; min-width: 0; font-size: 15px; line-height: 1.55; color: var(--text-secondary); text-wrap: pretty; }
+
+  .donation {
+    margin-top: 34px; padding: 22px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 16px;
+  }
+  .donation-text { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .donation-text strong {
+    font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 24px;
+    line-height: 1.15; color: var(--text-primary);
+  }
+  .donation-text p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--text-tertiary); max-width: 42ch; text-wrap: pretty; }
+  .donation-buttons { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .donation-buttons a {
+    flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    height: 48px; padding: 0 22px; font-family: 'DM Sans', Helvetica, sans-serif; font-size: 16px;
+    font-weight: 500; border-radius: 10px; text-decoration: none; white-space: nowrap;
+  }
+  .btn-mercadopago { color: var(--surface); background: var(--accent); }
+  .btn-mercadopago:hover { background: var(--accent-hover); }
+  .btn-mercadopago:active { transform: translateY(1px); }
+  .btn-paypal { color: var(--accent); background: var(--bg); border: 1px solid var(--border-strong); }
+  .btn-paypal:hover { background: var(--surface-hover); border-color: var(--accent); }
+  .btn-paypal:active { transform: translateY(1px); }
+
+  footer {
+    margin: 40px 0 0; padding-top: 20px; border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+    gap: 6px 16px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);
+  }
+  footer .contact { text-transform: none; letter-spacing: 0.02em; }
+  footer .contact a { color: var(--accent); text-decoration: none; }
+  footer .contact a:hover { color: var(--accent-hover-2); text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="container">
+
+    <header>
+      <span class="eyebrow">Cocina · cantidades</span>
+      <h1>Medidor de porciones</h1>
+      <p>Elige qué vas a preparar y para cuántas personas. Te devuelvo la lista con las cantidades exactas.</p>
+    </header>
+
+    <div class="form-card">
+      <label class="field">
+        <span>¿Qué quieres preparar?</span>
+        <span class="select-wrap">
+          <select id="dish-select"></select>
+          <span class="select-chevron"></span>
+        </span>
+      </label>
+
+      <label class="field">
+        <span>¿Para cuántas personas?</span>
+        <div class="stepper">
+          <button type="button" id="btn-dec" aria-label="Menos personas">−</button>
+          <input type="number" id="people-input" min="1" max="200" inputmode="numeric" value="4">
+          <button type="button" id="btn-inc" aria-label="Más personas">+</button>
+        </div>
+      </label>
+
+      <button type="button" class="btn-primary" id="btn-calc">Calcular</button>
+    </div>
+
+    <section class="results" id="results">
+      <div class="results-heading">
+        <h2 id="result-title"></h2>
+        <span id="result-subtitle"></span>
+      </div>
+
+      <div class="ing-grid" id="ing-grid"></div>
+
+      <p class="tip" id="tip"></p>
+
+      <div class="steps">
+        <span class="steps-label">Preparación</span>
+        <div id="steps-list"></div>
+      </div>
+    </section>
+
+    <div class="donation">
+      <div class="donation-text">
+        <strong>Haz tu aporte voluntario</strong>
+        <p>Haz tu aporte voluntario para poder mejorar este sitio y mantenerlo. Muchas gracias.</p>
+      </div>
+      <div class="donation-buttons">
+        <a class="btn-mercadopago" href="https://link.mercadopago.cl/medidordeporciones" target="_blank" rel="noopener noreferrer">Donar por Mercado Pago</a>
+        <a class="btn-paypal" href="https://www.paypal.me/alonsovselmundo" target="_blank" rel="noopener noreferrer">Donar por Paypal</a>
+      </div>
+    </div>
+
+    <footer>
+      <span>Estudio Cactus ®</span>
+      <span class="contact">Contacto: <a href="mailto:alonso.chr91@gmail.com">alonso.chr91@gmail.com</a></span>
+    </footer>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
