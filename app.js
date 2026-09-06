@@ -115,7 +115,62 @@ const DISHES = [
       { n: 'aceite', per: 1, u: 'cda', mode: 'frac' },
       { n: 'sal', per: 0.5, u: 'cdta', mode: 'frac' },
       { n: 'ajo', per: 0.5, u: 'diente', mode: 'frac' },
-      { n: 'merkén o pimienta', per: 0.25, u: 'cdta', mode: 'frac' } ] }
+      { n: 'merkén o pimienta', per: 0.25, u: 'cdta', mode: 'frac' } ] },
+
+  { id: 'queque', name: 'Queque', unitLabel: 'trozo', unitLabelPl: 'trozos',
+    tip: 'Bate la mantequilla con el azúcar hasta que esté cremosa y clara antes de agregar los huevos uno a uno. Un molde de 24 cm rinde unos 10 trozos.',
+    steps: ['Bate la mantequilla con el azúcar hasta blanquear; agrega los huevos de a uno.', 'Incorpora la harina cernida con los polvos de hornear, alternando con la leche, sin batir de más.', 'Vierte en molde enmantequillado y hornea a 180 °C por 40-45 min, hasta que el palillo salga limpio.'],
+    ing: [
+      { n: 'harina', per: 25, u: 'g', mode: 'r5' },
+      { n: 'azúcar', per: 30, u: 'g', mode: 'r5' },
+      { n: 'mantequilla', per: 20, u: 'g', mode: 'r5', note: 'a temperatura ambiente' },
+      { n: 'huevos', per: 0.3, u: 'unidad', mode: 'int' },
+      { n: 'leche', per: 18, u: 'ml', mode: 'r10' },
+      { n: 'polvos de hornear', per: 0.3, u: 'cdta', mode: 'frac' },
+      { n: 'esencia de vainilla', per: 0.2, u: 'cdta', mode: 'frac' } ] },
+
+  { id: 'pie-de-limon', name: 'Pie de limón', unitLabel: 'trozo', unitLabelPl: 'trozos',
+    tip: 'El relleno cuaja en frío con el ácido del limón: solo el merengue va al horno. Un molde de 24 cm rinde unos 10 trozos.',
+    steps: ['Muele las galletas y mézclalas con la mantequilla derretida; presiona en el molde y lleva 15 min al frío.', 'Bate las yemas con la leche condensada y el jugo de limón hasta que espese; vierte sobre la base.', 'Bate las claras con el azúcar a punto de merengue, cubre el pie y dóralo 8-10 min a 180 °C.'],
+    ing: [
+      { n: 'galletas', per: 20, u: 'g', mode: 'r5', note: 'tipo María, molidas para la base' },
+      { n: 'mantequilla', per: 10, u: 'g', mode: 'r5', note: 'derretida, para la base' },
+      { n: 'leche condensada', per: 40, u: 'g', mode: 'r5' },
+      { n: 'jugo de limón', per: 15, u: 'ml', mode: 'r10', note: '≈ 1 limón cada 3-4 trozos' },
+      { n: 'huevos', per: 0.3, u: 'unidad', mode: 'int', note: 'yema para el relleno, clara para el merengue' },
+      { n: 'azúcar', per: 15, u: 'g', mode: 'r5', note: 'para el merengue' } ] },
+
+  { id: 'leche-asada', name: 'Leche asada', unitLabel: 'porción', unitLabelPl: 'porciones',
+    tip: 'Se hornea a baño María para que cuaje pareja y sin burbujas. Está lista cuando el centro tiembla apenas al mover el molde.',
+    steps: ['Derrite el azúcar del caramelo directamente en el molde a fuego bajo y cubre la base.', 'Bate la leche con los huevos, el azúcar y la vainilla; cuela la mezcla y viértela en el molde.', 'Hornea a baño María a 180 °C por 50-60 min; enfría y refrigera antes de desmoldar.'],
+    ing: [
+      { n: 'leche', per: 125, u: 'ml', mode: 'r10' },
+      { n: 'huevos', per: 0.75, u: 'unidad', mode: 'int' },
+      { n: 'azúcar', per: 25, u: 'g', mode: 'r5', note: 'para la mezcla' },
+      { n: 'azúcar para el caramelo', per: 12, u: 'g', mode: 'r5', note: 'directo en el molde' },
+      { n: 'esencia de vainilla', per: 0.2, u: 'cdta', mode: 'frac' } ] },
+
+  { id: 'gelatina', name: 'Gelatina', unitLabel: 'porción', unitLabelPl: 'porciones',
+    tip: 'Disuelve el polvo en el agua caliente hasta que no queden gránulos y recién ahí agrega el agua fría. Cuaja en unas 4 horas de refrigerador; la piña y el kiwi crudos impiden que tome.',
+    steps: ['Disuelve la gelatina en el agua caliente revolviendo 2 min.', 'Agrega el agua fría y, si quieres, la fruta picada (nunca piña ni kiwi crudos).', 'Reparte en copas o un molde y refrigera al menos 4 horas.'],
+    ing: [
+      { n: 'gelatina en polvo', per: 15, u: 'g', mode: 'r5', note: 'sabor a elección' },
+      { n: 'agua caliente', per: 120, u: 'ml', mode: 'r10', note: 'para disolver el polvo' },
+      { n: 'agua fría', per: 120, u: 'ml', mode: 'r10' },
+      { n: 'fruta picada', per: 0.5, u: 'taza', mode: 'frac', note: 'opcional' } ] },
+
+  { id: 'fideos-salteado', name: 'Fideos salteados', unitLabel: 'plato de fondo', unitLabelPl: 'platos de fondo',
+    tip: 'Cuece los fideos al dente y enfríalos; saltéalos en el wok bien caliente al final y por poco rato, para que no se hagan pasta.',
+    steps: ['Cuece los fideos al dente, cuela y revuélvelos con unas gotas de aceite.', 'Saltea la carne o el pollo en tiras a fuego fuerte; retira y en el mismo wok cocina cebolla, pimentón y zanahoria.', 'Devuelve la carne al wok, agrega los fideos y la salsa de soya, y saltea 2 min revolviendo.'],
+    ing: [
+      { n: 'fideos', per: 100, u: 'g', mode: 'r10', note: 'espagueti o tallarín, cocido al dente' },
+      { n: 'pollo en tiras', per: 90, u: 'g', mode: 'r10', note: 'o carne de vacuno en tiras finas' },
+      { n: 'cebolla', per: 0.3, u: 'unidad', mode: 'frac', note: 'en pluma' },
+      { n: 'pimentón', per: 0.3, u: 'unidad', mode: 'frac', note: 'en tiras' },
+      { n: 'zanahoria', per: 0.3, u: 'unidad', mode: 'frac', note: 'en tiras finas' },
+      { n: 'salsa de soya', per: 1, u: 'cda', mode: 'frac' },
+      { n: 'aceite', per: 0.5, u: 'cda', mode: 'frac' },
+      { n: 'ajo', per: 0.5, u: 'diente', mode: 'frac' } ] }
 ];
 
 const FRACS = [[0, ''], [0.25, '¼'], [0.333, '⅓'], [0.5, '½'], [0.667, '⅔'], [0.75, '¾'], [1, '1']];
@@ -125,7 +180,8 @@ const GR_POR_TAZA = [
   ['arroz', 185], ['fideos', 100], ['harina', 120], ['azúcar', 200], ['sal', 290],
   ['porotos', 190], ['lenteja', 190], ['carne', 225], ['queso', 100], ['mantequilla', 227],
   ['zapallo', 140], ['papa', 150], ['arveja', 145], ['choclo', 165], ['cebolla', 160],
-  ['aceite', 218], ['mayonesa', 230], ['leche', 245], ['agua', 240], ['salsa', 245], ['chucrut', 150]
+  ['aceite', 218], ['mayonesa', 230], ['leche', 245], ['agua', 240], ['salsa', 245], ['chucrut', 150],
+  ['galleta', 100]
 ];
 
 // ingredientes que se cortan en vez de medirse a granel: peso de una pieza y cómo se corta
