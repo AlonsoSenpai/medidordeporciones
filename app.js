@@ -170,7 +170,73 @@ const DISHES = [
       { n: 'zanahoria', per: 0.3, u: 'unidad', mode: 'frac', note: 'en tiras finas' },
       { n: 'salsa de soya', per: 1, u: 'cda', mode: 'frac' },
       { n: 'aceite', per: 0.5, u: 'cda', mode: 'frac' },
-      { n: 'ajo', per: 0.5, u: 'diente', mode: 'frac' } ] }
+      { n: 'ajo', per: 0.5, u: 'diente', mode: 'frac' } ] },
+
+  { id: 'pastel-de-choclo', name: 'Pastel de choclo', unitLabel: 'plato', unitLabelPl: 'platos',
+    tip: 'La pasta de choclo se cocina revolviendo hasta que espesa y se despega del fondo; el pino se prepara el día anterior para que tome sabor. Se hornea hasta que la superficie se dora.',
+    steps: ['Prepara el pino: sofríe la cebolla en cubitos, agrega la carne molida y cocina con comino, ají de color y sal; deja enfriar.', 'Muele el choclo con la albahaca y cocínalo con la leche y la mantequilla, revolviendo, hasta que espese.', 'Arma en fuentes: pino, presa de pollo, huevo, aceitunas y pasas; cubre con la pasta de choclo, espolvorea azúcar y hornea a 200 °C hasta dorar.'],
+    ing: [
+      { n: 'choclo', per: 2, u: 'unidad', mode: 'int', note: 'molido para la pasta' },
+      { n: 'carne molida', per: 90, u: 'g', mode: 'r10', note: 'para el pino' },
+      { n: 'presa de pollo', per: 0.5, u: 'unidad', mode: 'int', note: 'pieza chica, para el pino' },
+      { n: 'cebolla', per: 0.5, u: 'unidad', mode: 'frac', note: 'en cubitos, para el pino' },
+      { n: 'huevo', per: 0.5, u: 'unidad', mode: 'int', note: 'duro, en rodajas' },
+      { n: 'aceitunas', per: 1, u: 'unidad', mode: 'int', note: 'negras, sin cuesco' },
+      { n: 'pasas', per: 1, u: 'cda', mode: 'frac' },
+      { n: 'leche', per: 60, u: 'ml', mode: 'r10', note: 'para la pasta de choclo' },
+      { n: 'mantequilla', per: 10, u: 'g', mode: 'r5', note: 'para la pasta de choclo' },
+      { n: 'albahaca', per: 0.3, u: 'cda', mode: 'frac', note: 'picada, en la pasta' },
+      { n: 'azúcar', per: 1, u: 'cdta', mode: 'frac', note: 'para espolvorear antes de hornear' } ] },
+
+  { id: 'empanadas', name: 'Empanadas de pino', unitLabel: 'empanada', unitLabelPl: 'empanadas',
+    tip: 'El pino se hace el día anterior y se enfría bien: caliente moja la masa y la empanada se abre en el horno. Pincela con huevo batido para el dorado.',
+    steps: ['Sofríe bastante cebolla en cubitos con la carne, el ají de color, el comino y sal; enfría y refrigera, idealmente de un día para otro.', 'Estira la masa, corta discos, rellena con pino frío, una aceituna, pasas y un trozo de huevo duro; cierra y dobla el repulgue.', 'Pincela con huevo batido y hornea a 220 °C por 25-30 min, hasta que estén doradas.'],
+    ing: [
+      { n: 'harina', per: 80, u: 'g', mode: 'r10', note: 'para la masa, por empanada' },
+      { n: 'manteca o margarina', per: 15, u: 'g', mode: 'r5', note: 'para la masa' },
+      { n: 'posta o asado, en cubitos', per: 60, u: 'g', mode: 'r10', note: 'para el pino' },
+      { n: 'cebolla', per: 0.5, u: 'unidad', mode: 'frac', note: 'en cubitos, misma cantidad que la carne' },
+      { n: 'huevo', per: 0.25, u: 'unidad', mode: 'int', note: 'duro, en cuartos' },
+      { n: 'aceitunas', per: 1, u: 'unidad', mode: 'int', note: 'negras, una por empanada' },
+      { n: 'pasas', per: 1, u: 'cdta', mode: 'frac' },
+      { n: 'ají de color', per: 0.25, u: 'cdta', mode: 'frac' },
+      { n: 'comino', per: 0.2, u: 'cdta', mode: 'frac' } ] },
+
+  { id: 'sopaipillas', name: 'Sopaipillas', unitLabel: 'porción', unitLabelPl: 'porciones',
+    tip: 'La masa se trabaja tibia y se estira delgada; se fríen en aceite caliente pero no humeante, dándolas vuelta cuando inflan. Para sopaipillas pasadas, sumérgelas en chancaca caliente.',
+    steps: ['Cuece el zapallo, muélelo y mézclalo tibio con la harina, los polvos de hornear, la sal y la materia grasa hasta formar una masa lisa.', 'Estira de ½ cm, corta discos y pícalos al centro con un tenedor.', 'Fríe en aceite caliente, dando vuelta al inflar, hasta que estén doradas; escurre en papel.'],
+    ing: [
+      { n: 'harina', per: 70, u: 'g', mode: 'r10', note: '≈ 5 sopaipillas por porción' },
+      { n: 'zapallo', per: 60, u: 'g', mode: 'r10', note: 'cocido y molido' },
+      { n: 'manteca o margarina', per: 15, u: 'g', mode: 'r5', note: 'para la masa' },
+      { n: 'polvos de hornear', per: 0.5, u: 'cdta', mode: 'frac' },
+      { n: 'sal', per: 0.25, u: 'cdta', mode: 'frac' },
+      { n: 'aceite', per: 100, u: 'ml', mode: 'r50', note: 'para freír; la mayor parte se reutiliza' } ] },
+
+  { id: 'lentejas', name: 'Lentejas guisadas', unitLabel: 'plato hondo', unitLabelPl: 'platos hondos',
+    tip: 'Las lentejas chicas se cocinan en 25-30 minutos sin remojo. La sal va al final: si se agrega antes, la piel se endurece. El zapallo en cubos se deshace y espesa el guiso.',
+    steps: ['Sofríe cebolla, ajo, zanahoria y ají de color; agrega las lentejas y revuelve un minuto.', 'Cubre con el agua o caldo caliente, suma el zapallo y cocina a fuego bajo 25-30 min.', 'Sala al final; si quieres, agrega arroz o fideos cocidos y deja espesar.'],
+    ing: [
+      { n: 'lentejas', per: 80, u: 'g', mode: 'r10', note: 'secas; no necesitan remojo largo' },
+      { n: 'agua o caldo', per: 600, u: 'ml', mode: 'r50' },
+      { n: 'zapallo', per: 80, u: 'g', mode: 'r10', note: 'en cubos, se deshace y espesa' },
+      { n: 'cebolla', per: 0.3, u: 'unidad', mode: 'frac' },
+      { n: 'zanahoria', per: 0.3, u: 'unidad', mode: 'frac', note: 'en cubitos' },
+      { n: 'ajo', per: 1, u: 'diente', mode: 'frac' },
+      { n: 'ají de color', per: 0.3, u: 'cdta', mode: 'frac' },
+      { n: 'longaniza o tocino', per: 30, u: 'g', mode: 'r5', note: 'opcional' },
+      { n: 'arroz o fideos', per: 1, u: 'cda', mode: 'frac', note: 'opcional, para "lentejas con riendas"' } ] },
+
+  { id: 'arroz-con-leche', name: 'Arroz con leche', unitLabel: 'porción', unitLabelPl: 'porciones',
+    tip: 'El arroz se precocina en agua para que suelte almidón; después se cocina lento en la leche, revolviendo seguido para que no se pegue. Espesa más al enfriarse, así que retíralo un punto antes.',
+    steps: ['Cuece el arroz en el agua con la canela y la cáscara de limón unos 10 min, hasta que absorba casi toda el agua.', 'Agrega la leche y el azúcar y cocina a fuego bajo, revolviendo seguido, 20-25 min hasta que esté cremoso.', 'Retira la canela y la cáscara; sirve tibio o frío, con canela en polvo por encima.'],
+    ing: [
+      { n: 'arroz', per: 30, u: 'g', mode: 'r5', note: 'grano corto si puedes' },
+      { n: 'leche', per: 200, u: 'ml', mode: 'r10' },
+      { n: 'azúcar', per: 25, u: 'g', mode: 'r5' },
+      { n: 'agua', per: 100, u: 'ml', mode: 'r10', note: 'para precocer el arroz' },
+      { n: 'canela', per: 0.3, u: 'unidad', mode: 'frac', note: 'en rama' },
+      { n: 'cáscara de limón', per: 0.2, u: 'unidad', mode: 'frac', note: 'un trozo, sin la parte blanca' } ] }
 ];
 
 const FRACS = [[0, ''], [0.25, '¼'], [0.333, '⅓'], [0.5, '½'], [0.667, '⅔'], [0.75, '¾'], [1, '1']];
